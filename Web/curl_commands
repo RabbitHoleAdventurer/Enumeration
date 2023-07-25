@@ -1,1 +1,35 @@
+Sending GET requests
 
+Send requests with key/value pairing
+curl '[URL]?[KEY]=[VALUE]'
+
+Send requests with multiple key/value pairings
+curl '[URL]?[KEY]=[VALUE]&[KEY]=[VALUE]'
+
+Send requests with a cookie key/value pairing
+curl [URL] -H 'Cookie: [KEY]=[VALUE]' -v
+
+Send requests with Content-Type set
+curl [URL] -H 'Content-Type:  [KEY]/[VALUE]' -v
+
+Send requests with Accept-Language set
+curl [URL] -H 'Accept-Language: [KEY]-[VALUE]' -v
+
+Send request with multiple header options
+curl "[DOMAIN]" -H '[HEADER1]: [VALUE]' -H '[HEADER2]: [VALUE]' -v
+
+Send request without squashing specified path
+curl "[DOMAIN]/../[OTHERPARTOFDOMAIN]" --path-as-is -v
+
+
+
+Sending POST requests
+
+Send POST request with key/value pairing
+curl  [URL] --data '[KEY]=[VALUE]'
+
+Send requests with multiple key/value pairings
+curl  [URL] --data '[KEY]=[VALUE]&[KEY]=[VALUE]' -v
+
+Send a POST request with both a GET and POST parameter
+curl '[URL]?[KEY]=[VALUE]' --data '[KEY]=[VALUE]' 
