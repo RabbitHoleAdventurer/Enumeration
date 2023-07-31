@@ -1,0 +1,8 @@
+# Find files that are world readable
+find / -type f -readable 2>/dev/null
+
+# Find files that run with the permission of the user
+find / -type f -perm -u=s 2>/dev/null
+
+# Find files that run with the permission of the group
+find / -type f -perm -g=s 2>/dev/null
